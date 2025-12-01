@@ -1,6 +1,9 @@
 package com.example.test_lab_week_12
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.test_lab_week_12.api.MovieService
+import com.example.test_lab_week_12.model.Movie
 
 class MovieRepository(private val movieService: MovieService) {
     private val apiKey = "b2f31b91c07b880e547ad02b39d59dad"

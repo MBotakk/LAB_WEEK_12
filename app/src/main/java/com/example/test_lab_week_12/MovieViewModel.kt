@@ -1,6 +1,11 @@
 package com.example.test_lab_week_12
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.test_lab_week_12.model.Movie
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MovieViewModel(private val movieRepository: MovieRepository)
     : ViewModel() {
@@ -16,7 +21,7 @@ class MovieViewModel(private val movieRepository: MovieRepository)
     private fun fetchPopularMovies() {
 // launch a coroutine in viewModelScope
 // Dispatchers.IO means that this coroutine will run on a shared
-        pool of threads
+        //pool of threads
         viewModelScope.launch(Dispatchers.IO) {
             movieRepository.fetchMovies()
         }

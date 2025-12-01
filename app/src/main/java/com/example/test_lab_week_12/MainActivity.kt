@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                     return MovieViewModel(movieRepository) as T
                 }
             })[MovieViewModel::class.java]
+
         movieViewModel.popularMovies.observe(this) { popularMovies ->
             val currentYear =
                 Calendar.getInstance().get(Calendar.YEAR).toString()
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                     .sortedByDescending { it.popularity }
             )
         }
+
         movieViewModel.error.observe(this) { error ->
             if (error.isNotEmpty()) {
                 Snackbar.make(recyclerView, error, Snackbar.LENGTH_LONG).show()
